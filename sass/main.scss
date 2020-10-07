@@ -6,6 +6,13 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+$color-grey-dark: #777;
+$color-white: #fff;
+
 /* Universal Selector */
 *,
 *::after,
@@ -16,15 +23,14 @@ Dark green: #28b485
 }
 
 html {
-  font-size: 62.5%;
-  /* now rem won't have default value of 16px but changed to 10px because that's easier for calculation*/
+  font-size: 62.5%; /* now rem won't have default value of 16px but changed to 10px because that's easier for calculation*/
 }
 
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  color: #777;
+  color: $color-grey-dark;
   padding: 3rem;
   box-sizing: border-box;
 }
@@ -32,7 +38,12 @@ body {
 /* header section */
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.801), rgba(40, 180, 133, 0.801)), url(../img/hero.jpg);
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.801),
+      rgba($color-primary-dark, 0.801)
+    ),
+    url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
@@ -85,9 +96,11 @@ body {
     opacity: 0;
     transform: translateX(-10rem);
   }
+
   80% {
     transform: translateX(1rem);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -99,9 +112,11 @@ body {
     opacity: 0;
     transform: translateX(10rem);
   }
+
   80% {
     transform: translateX(-1rem);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -113,6 +128,7 @@ body {
     opacity: 0;
     transform: translateY(3rem);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -133,8 +149,7 @@ body {
 
 .btn:hover {
   transform: translateY(-0.3rem);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  /* x y blur color*/
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* x y blur color*/
 }
 
 .btn:active {
@@ -143,8 +158,8 @@ body {
 }
 
 .btn--white {
-  background-color: #fff;
-  color: #777;
+  background-color: $color-white;
+  color: $color-grey-dark;
 }
 
 .btn--animated {
@@ -165,11 +180,10 @@ body {
 }
 
 .btn--white::after {
-  background-color: #fff;
+  background-color: $color-white;
 }
 
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
-/*# sourceMappingURL=main.css.map */
